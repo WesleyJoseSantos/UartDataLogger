@@ -55,7 +55,7 @@ namespace UartDataLogger
         private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             String text = Convert.ToString(stopWatch.ElapsedMilliseconds);
-            text += "\t" + serialPort.ReadExisting();
+            text += "\t" + serialPort.ReadLine();
             tbMonitor.Invoke(monitorAppendText, text);
         }
 
