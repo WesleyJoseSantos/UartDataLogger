@@ -1,8 +1,0 @@
-C:\Users\BINAR\source\repos\UartDataLogger\UartDataLogger\bin\Release\UartDataLogger.exe
-C:\Users\BINAR\source\repos\UartDataLogger\UartDataLogger\bin\Release\UartDataLogger.pdb
-C:\Users\BINAR\source\repos\UartDataLogger\UartDataLogger\obj\Release\UartDataLogger.csprojAssemblyReference.cache
-C:\Users\BINAR\source\repos\UartDataLogger\UartDataLogger\obj\Release\UartDataLogger.MainScreen.resources
-C:\Users\BINAR\source\repos\UartDataLogger\UartDataLogger\obj\Release\UartDataLogger.Properties.Resources.resources
-C:\Users\BINAR\source\repos\UartDataLogger\UartDataLogger\obj\Release\UartDataLogger.csproj.GenerateResource.cache
-C:\Users\BINAR\source\repos\UartDataLogger\UartDataLogger\obj\Release\UartDataLogger.exe
-C:\Users\BINAR\source\repos\UartDataLogger\UartDataLogger\obj\Release\UartDataLogger.pdb
