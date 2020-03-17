@@ -44,6 +44,8 @@
             this.mtbTime = new System.Windows.Forms.MaskedTextBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.cbEnableNewLine = new System.Windows.Forms.CheckBox();
+            this.cbOutTimeType = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,9 +58,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(11, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Porta:";
+            this.label1.Text = "Port:";
             // 
             // cbPort
             // 
@@ -86,9 +88,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(124, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Velocidade:";
+            this.label2.Text = "Baud Rate:";
             // 
             // cbSpeed
             // 
@@ -112,7 +114,7 @@
             // 
             // tbMonitor
             // 
-            this.tbMonitor.Location = new System.Drawing.Point(12, 66);
+            this.tbMonitor.Location = new System.Drawing.Point(12, 67);
             this.tbMonitor.Multiline = true;
             this.tbMonitor.Name = "tbMonitor";
             this.tbMonitor.Size = new System.Drawing.Size(367, 171);
@@ -148,6 +150,7 @@
             this.tsbStop.Name = "tsbStop";
             this.tsbStop.Size = new System.Drawing.Size(23, 22);
             this.tsbStop.Text = "Salvar Datalogger";
+            this.tsbStop.ToolTipText = "Save Datalogger";
             this.tsbStop.Click += new System.EventHandler(this.TsbStop_Click);
             // 
             // tsbtDelete
@@ -158,7 +161,7 @@
             this.tsbtDelete.Name = "tsbtDelete";
             this.tsbtDelete.Size = new System.Drawing.Size(23, 22);
             this.tsbtDelete.Text = "toolStripButton1";
-            this.tsbtDelete.ToolTipText = "Limpar Tela";
+            this.tsbtDelete.ToolTipText = "Clear Screen";
             this.tsbtDelete.Click += new System.EventHandler(this.TsbtDelete_Click);
             // 
             // label3
@@ -166,9 +169,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(260, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Tempo (min):";
+            this.label3.Text = "Timer (min):";
             // 
             // mtbTime
             // 
@@ -192,11 +195,38 @@
             this.saveFileDialog.FileName = "DataLoggerFile";
             this.saveFileDialog.Filter = "Planilha|*.xls";
             // 
+            // cbEnableNewLine
+            // 
+            this.cbEnableNewLine.AutoSize = true;
+            this.cbEnableNewLine.Location = new System.Drawing.Point(180, 247);
+            this.cbEnableNewLine.Name = "cbEnableNewLine";
+            this.cbEnableNewLine.Size = new System.Drawing.Size(71, 17);
+            this.cbEnableNewLine.TabIndex = 8;
+            this.cbEnableNewLine.Text = "New Line";
+            this.cbEnableNewLine.UseVisualStyleBackColor = true;
+            // 
+            // cbOutTimeType
+            // 
+            this.cbOutTimeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOutTimeType.FormattingEnabled = true;
+            this.cbOutTimeType.Items.AddRange(new object[] {
+            "Millis",
+            "Timestamp",
+            "Time",
+            "Time and Date"});
+            this.cbOutTimeType.Location = new System.Drawing.Point(257, 245);
+            this.cbOutTimeType.Name = "cbOutTimeType";
+            this.cbOutTimeType.Size = new System.Drawing.Size(121, 21);
+            this.cbOutTimeType.TabIndex = 9;
+            this.cbOutTimeType.SelectedIndexChanged += new System.EventHandler(this.cbOutTimeType_SelectedIndexChanged);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 250);
+            this.ClientSize = new System.Drawing.Size(392, 273);
+            this.Controls.Add(this.cbOutTimeType);
+            this.Controls.Add(this.cbEnableNewLine);
             this.Controls.Add(this.mtbTime);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.toolStrip1);
@@ -209,6 +239,8 @@
             this.MaximizeBox = false;
             this.Name = "MainScreen";
             this.Text = "Uart Data Logger";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainScreen_FormClosing);
+            this.Load += new System.EventHandler(this.MainScreen_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -232,5 +264,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripButton tsbtDelete;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.CheckBox cbEnableNewLine;
+        private System.Windows.Forms.ComboBox cbOutTimeType;
     }
 }
