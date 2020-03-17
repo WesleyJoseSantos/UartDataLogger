@@ -195,7 +195,8 @@ namespace UartDataLogger
 
         private void MainScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
-            appSettings.Port = cbPort.SelectedItem.ToString();
+            if(cbPort.SelectedItem != null)
+                appSettings.Port = cbPort.SelectedItem.ToString();
             appSettings.BaudRate = cbSpeed.SelectedItem.ToString();
             appSettings.Timer = mtbTime.Text;
             appSettings.NewLine = cbEnableNewLine.Checked;
